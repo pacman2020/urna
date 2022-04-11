@@ -50,8 +50,6 @@ function save(event) {
     switch (candidato.value) {
         case 'branco':
             placas[0].placa += 1
-            console.log(placas[0].placa)
-            console.log(candidato.va)
             break;
     
         case 'mario':
