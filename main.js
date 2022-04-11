@@ -24,6 +24,8 @@ let placas = [
     }
 ]
 
+let listCpf = []
+
 function listaPlaca() {
     ul.innerHTML = ''
     for(x in placas){
@@ -42,10 +44,25 @@ function save(event) {
         aviso.style.color = 'red'
         aviso.innerHTML = 'preencha todos os campos'
         aletar.appendChild(aviso)
-
+        
         setTimeout(()=>{ aletar.innerHTML = ''},2000)
         return 
     }
+    
+    for(cpfEncontrado in listCpf){
+        console.log('---->'+listCpf[cpfEncontrado])
+        if(listCpf[cpfEncontrado] === cpf.value){
+            let aviso = document.createElement('h2')
+            aviso.style.color = 'red'
+            aviso.innerHTML = 'cpf ja registrado'
+            aletar.appendChild(aviso)
+            
+            setTimeout(()=>{ aletar.innerHTML = ''},2000)
+            return 
+        }
+    }
+
+    listCpf.push(cpf.value)
 
     switch (candidato.value) {
         case 'branco':
